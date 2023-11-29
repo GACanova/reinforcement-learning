@@ -9,7 +9,7 @@ This repository contains a collection of Jupyter notebooks demonstrating various
 
 ## Getting Started
 To use these notebooks:
-1. Clone the repository: `git clone https://github.com/[GACanova]/[reinforcment-learning].git`
+1. Clone the repository: `git clone https://github.com/GACanova/reinforcment-learning.git`
 2. Install dependencies: `pip install -r requirements.txt` (ensure you have Python installed)
 3. Run Jupyter Notebook: `jupyter notebook` and navigate to the desired notebook.
 
