@@ -9,7 +9,7 @@ class Blackjack:
         return min(np.random.randint(1, 14), 10)
     
     def has_usable_ace(self, hand):
-        if 1 in hand and sum(hand) <= 21:
+        if 1 in hand and sum(hand) + 10 <= 21:
             return 1
         return 0
     
