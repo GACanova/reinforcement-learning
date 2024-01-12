@@ -2,6 +2,65 @@ import numpy as np
 from collections import defaultdict
 
 class Blackjack:
+    """
+    A class that implements the game of Blackjack for the purpose of demonstrating 
+    the first-visit Monte Carlo method in Reinforcement Learning, as described in 
+    Sutton and Barto's book. 
+
+    The game of Blackjack is simulated, where the goal is to achieve a card sum 
+    closer to 21 than the dealer's sum without going over 21. The player's policy 
+    is fixed, and the state values are estimated using the first-visit Monte Carlo 
+    method. This method involves averaging the returns from the first visits to 
+    each state in multiple simulated games.
+
+    Attributes:
+    -----------
+    gamma : float
+        The discount factor for future rewards (default is 1.0).
+
+    Methods:
+    --------
+    draw_card():
+        Draws a card with values between 1 and 10 (inclusive), where face cards 
+        are counted as 10.
+
+    has_usable_ace(hand):
+        Checks if the hand has a usable Ace (counted as 11 without busting).
+
+    sum_cards(hand):
+        Calculates the sum of the cards in a hand, considering the usable Ace.
+
+    create_value_function():
+        Initializes the state value function to zeros for all state combinations.
+
+    create_policy():
+        Initializes the player's policy, which is fixed throughout the simulation.
+
+    calculate_state():
+        Determines the current state based on the player's hand, dealer's showing 
+        card, and usability of Ace.
+
+    calculate_reward():
+        Calculates the reward based on the final sums of the player's and dealer's hands.
+
+    play_hand(action, state):
+        Plays a hand based on the given action and returns the new state, reward, 
+        and a boolean indicating if the game is done.
+
+    first_visit_mc(n_episodes=10000):
+        Runs the first-visit Monte Carlo simulation for a given number of episodes, 
+        updating the value function based on the returns from each episode.
+
+    Example:
+    --------
+    blackjack = Blackjack()
+    v = blackjack.first_visit_mc(n_episodes=5000)
+    print(v)
+
+    This will output the estimated state values after 5000 episodes of Blackjack 
+    played under the fixed policy.
+    """
+
     def __init__(self, gamma=1.):
         self.gamma = gamma
     
