@@ -1,3 +1,21 @@
+"""
+Configuration module for the grid-based simulation environment.
+
+This module defines the grid dimensions, the initial and goal states, and possible actions
+for agents within the environment. It includes configurations for basic movement actions
+as well as extended sets of actions that include diagonal movements and the option to stop.
+
+Attributes:
+    X_SIZE (int): Width of the grid.
+    Y_SIZE (int): Height of the grid.
+    STATES (list of tuples): All possible (x, y) positions in the grid.
+    INITIAL_STATE (tuple): Starting position in the grid.
+    GOAL_STATE (tuple): Target position in the grid.
+    ACTIONS (list of tuples): Basic action set for movement (up, down, right, left).
+    KINGS_ACTIONS (list of tuples): Extended action set including diagonal movements.
+    KINGS_ACTIONS_STOP (list of tuples): Extended action set including diagonal movements and the option to stop.
+"""
+
 X_SIZE = 10
 Y_SIZE = 7
 assert X_SIZE > 0 and Y_SIZE > 0, "Grid sizes must be positive integers."
