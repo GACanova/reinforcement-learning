@@ -29,7 +29,7 @@ assert (
 ), "Initial state must be bounded."
 assert (
     0 <= GOAL_STATE[0] < X_SIZE and 0 <= GOAL_STATE[1] < Y_SIZE
-), "Initial state must be bounded."
+), "Goal state must be bounded."
 assert INITIAL_STATE != GOAL_STATE, "Initial and goal states must be different."
 
 ACTIONS = [(0, 1), (0, -1), (1, 0), (-1, 0)]
