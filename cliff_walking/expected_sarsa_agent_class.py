@@ -56,7 +56,16 @@ class ExpectedSarsaAgent:
             [self.state_action_function[(state, action)] for action in self.actions]
         )
 
-        return np.mean(action_values)
+        greedy_actions = action_values == np.max(action_values)
+
+        probabilities = np.where(
+            greedy_actions,
+            self.epsilon / len(self.actions)
+            + (1 - self.epsilon) / np.sum(greedy_actions),
+            self.epsilon / len(self.actions),
+        )
+
+        return np.dot(probabilities, action_values)
 
     def run_simulation(self, n_episodes=1000):
         self.state_action_function = defaultdict(float)
